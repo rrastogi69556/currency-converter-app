@@ -30,6 +30,7 @@ import org.springframework.web.client.RestClientException;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static org.apache.commons.lang3.StringUtils.EMPTY;
 
 @PageTitle("Currency Converter")
 @Route(value = "currency-converter", layout = MainLayout.class)
@@ -80,6 +81,7 @@ public class CurrencyConverterView extends HorizontalLayout {
     {
         convert = new Button("Convert");
         convert.addClickListener(e -> {
+            result.setText(EMPTY);
             if(uiComponentNotInitialized()) {
                 Notification.show("Please select/enter valid values", DURATION, Notification.Position.TOP_CENTER);
             } else
